@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url(./fisherman-6479663_1920.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+
+        h1 {
+            color: rgb(230, 230, 230);
+            font-size: 85px;
+            letter-spacing: 5px;
+            z-index: 9;
+        }
+
+        .font-style-one {
+            font-family: 'Teko', sans-serif;
+        }
+
+        .font-style-two {
+            font-family: 'Exo', sans-serif;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .color {
+            width: 85%;
+            height: 100vh;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            box-shadow: 0px 0px 1000px 50px rgba(0, 0, 0, 0.40) inset;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .sidebar {
+            width: 15%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #303030;
+            -webkit-box-shadow: 11px 0px 15px 0px #000000;
+            box-shadow: 11px 0px 15px 0px #000000;
+
+            font-size: 20px;
+            color: #ACA7CB;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            margin-bottom: 10px;
+            transition: 0.5s;
+        }
+
+        .sidebar ul li:hover {
+            cursor: pointer;
+        }
+
+        .color-info {
+            text-align: center;
+        }
+
+        .color-info a {
+            color: #ACA7CB;
+            font-size: 25px;
+            text-decoration: none;
+            cursor: copy;
+        }
+
+        .copied {
+            width: 100px;
+            height: 50px;
+            background: violet;
+
+            position: absolute;
+            bottom: 10%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: bolder;
+
+            border-radius: 2px;
+
+            transition: all .5s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="container">
+        <!-- Overlay -->
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <div class="sidebar font-style-two">
+            <ul>
+                <li box-name="blueViolet" style="list-style: disc;">
+                    <p>Blue Violet</p>
+                </li>
+                <li box-name="hotPink" style="list-style: none;">
+                    <p>Hot Pink</p>
+                </li>
+                <li box-name="darkCyan" style="list-style: none;">
+                    <p>Dark Cyan</p>
+                </li>
+                <li box-name="skyBlue" style="list-style: none;">
+                    <p>Deep Sky Blue</p>
+                </li>
+                <li box-name="tomato" style="list-style: none;">
+                    <p>Tomato</p>
+                </li>
+                <li class="slide"></li>
+            </ul>
+        </div>
+
+        <!-- Color Boxes -->
+        <div id="color-boxex">
+            <!-- 1.Blue Violet -->
+            <div id="blueViolet" class="color" style="background: blueviolet; visibility: hidden;">
+                <div class="color-info">
+                    <h1 id="colorName" class="font-style-one">Blue Violet</h1>
+                    <a class="copyToClipBoard font-style-two" onclick="copyToClipboard('#8A2BE2')" href="#">#8A2BE2</a>
+                </div>
+            </div>
+
+            <!-- 2.Hot Pink -->
+            <div id="hotPink" class="color" style="background: #FF69B4; visibility: hidden;">
+                <div class="color-info">
+                    <h1 class="font-style-one">Hot Pink</h1>
+                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" href="#">#8A2BE2</a>
+                </div>
+            </div>
+
+            <!-- 3.Dark Cyan -->
+            <div id="darkCyan" class="color" style="background: #008B8B; visibility: hidden;">
+                <div class="color-info">
+                    <h1 class="font-style-one">Dark Cyan</h1>
+                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" href="#">#8A2BE2</a>
+                </div>
+            </div>
+
+            <!-- 4.Sky Blue -->
+            <div id="skyBlue" class="color" style="background: #00BFFF; visibility: hidden;">
+                <div class="color-info">
+                    <h1 class="font-style-one">Deep Sky Blue</h1>
+                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" href="#">#8A2BE2</a>
+                </div>
+            </div>
+
+            <!-- 5.Tomato -->
+            <div id="tomato" class="color" style="background: #FF6347; visibility: hidden;">
+                <div class="color-info">
+                    <h1 class="font-style-one">Tomato</h1>
+                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" onclick="" href="#">#8A2BE2</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="copied" class="copied font-style-two" style="right: -10%;">
+            <p>Copied</p>
+        </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function copyToClipboard(text) {
+            let textArea = document.createElement("textarea");
+            document.body.appendChild(textArea);
+            textArea.value = text; //save main text in it
+            textArea.select(); //select textarea contenrs
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+
+            document.getElementById('copied').style.right = '10%';
+        }
+
+        $(document).ready(function () {
+            $('#blueViolet').css('visibility', 'visible');
+            // Hot Pink
+            $('.sidebar li').click(function () {
+
+                let boxName = $(this).attr('box-name');
+
+                $('#' + boxName).css('visibility', 'visible');
+                $('#' + boxName).addClass('animate__animated animate__lightSpeedInRight');
+                $('#' + boxName).siblings().css('visibility', 'hidden');
+                $('#' + boxName).siblings().removeClass('animate__animated animate__lightSpeedInRight');
+
+                $('.sidebar ul li').css('list-style', 'none');
+                $(this).css({
+                    'list-style': 'disc',
+                    'transition': '5s'
+                });
+            });
+        })
+    </script>
+</body>
+
+</html>
