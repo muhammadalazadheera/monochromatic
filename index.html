@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <title>Document</title>
 
     <style>
@@ -184,7 +185,7 @@
             <div id="hotPink" class="color" style="background: #FF69B4; visibility: hidden;">
                 <div class="color-info">
                     <h1 class="font-style-one">Hot Pink</h1>
-                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" href="#">#8A2BE2</a>
+                    <a class="copyToClipBoard font-style-two" onclick="copyToClipboard('#FF69B4')" href="#">#FF69B4</a>
                 </div>
             </div>
 
@@ -192,7 +193,7 @@
             <div id="darkCyan" class="color" style="background: #008B8B; visibility: hidden;">
                 <div class="color-info">
                     <h1 class="font-style-one">Dark Cyan</h1>
-                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" href="#">#8A2BE2</a>
+                    <a class="copyToClipBoard font-style-two" onclick="copyToClipboard('#008B8B')" href="#">#008B8B</a>
                 </div>
             </div>
 
@@ -200,7 +201,7 @@
             <div id="skyBlue" class="color" style="background: #00BFFF; visibility: hidden;">
                 <div class="color-info">
                     <h1 class="font-style-one">Deep Sky Blue</h1>
-                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" href="#">#8A2BE2</a>
+                    <a class="copyToClipBoard font-style-two" onclick="copyToClipboard('#00BFFF')" href="#">#00BFFF</a>
                 </div>
             </div>
 
@@ -208,7 +209,7 @@
             <div id="tomato" class="color" style="background: #FF6347; visibility: hidden;">
                 <div class="color-info">
                     <h1 class="font-style-one">Tomato</h1>
-                    <a class="copyToClipBoard font-style-two" color-value="#8A2BE2" onclick="" href="#">#8A2BE2</a>
+                    <a class="copyToClipBoard font-style-two" onclick="copyToClipboard('#FF6347')" href="#">#FF6347</a>
                 </div>
             </div>
         </div>
@@ -220,8 +221,27 @@
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
+
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "showDuration": "1500",
+            "hideDuration": "500",
+            "timeOut": "1500",
+            "extendedTimeOut": "500",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "slideDown",
+            "hideMethod": "slideUp"
+        }
+
         function copyToClipboard(text) {
             let textArea = document.createElement("textarea");
             document.body.appendChild(textArea);
@@ -230,7 +250,8 @@
             document.execCommand("copy");
             document.body.removeChild(textArea);
 
-            document.getElementById('copied').style.right = '10%';
+            toastr["info"]("Color code has been copied successfully!", "Copied")
+
         }
 
         $(document).ready(function () {
